@@ -1,4 +1,6 @@
-# All images should be stored in Azure with metadata
+# Images should be stored in Azure with metadata
+
+> [[index]]
 
 Azure is the chosen platform to store images and its metadata.
 
@@ -8,7 +10,9 @@ Cosmos DB is the solution Azure based of a managed database NOSQL, that is the b
 
 ## User Stories
 
-- [[]]
+- [[ep1_us1]]
+- [[ep1_us2]]
+- [[ep1_us3]]
 
 ## Legacy system 4AllPortal
 
