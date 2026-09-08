@@ -1,0 +1,16 @@
+{
+  "name": "multipicture_docu",
+  "version": "1.0.0",
+  "description": "Multipicture project - Docu",
+  "keywords": [
+    "Multipicture",
+    "WECO",
+    "iOS",
+    "SparesFinder",
+    "MaterialEnrichment"
+  ],
+  "author": "Justo Sanz",
+  "scripts": {
+    "pdf1": "'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe' --headless --print-to-pdf='C:\\Users\\sanzj4\\projects\\multipicture_docu\\docu\\ep1\\design\\design1.pdf' 'file:///C:/Users/sanzj4/projects/multipicture_docu/docu/ep1/design/design1.html'"
+  }
+}

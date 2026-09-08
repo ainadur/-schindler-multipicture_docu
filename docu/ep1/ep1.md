@@ -8,6 +8,9 @@ Microsoft provides binary storage with high availability and scalability using B
 
 Cosmos DB is the solution Azure based of a managed database NOSQL, that is the best solution to store JSON type metadata.
 
+## Design phase
+- [[design1]]
+
 ## User Stories
 
 - [[ep1_us1]]
