@@ -22,16 +22,16 @@ An entity can be associated with multiple images.
 
 ### Store Images based on a hierarchy to easily query for them
 
-In order to be able to have a good performance on the retrieve requests, Azure team recommend to use a kind of hierarchy to save pictures:
+In order to be properly retrieve the image binaries, it is recommended to use a path hierarchy prefix-based to save the images:
 
-- All images for a single material in the same folder/blob
-- Different containers for different [[#Entity|entities*]] or entity types
+- All images for a single entity should be in the same folder
+- Different containers will be needed for different [[#Entity|entities*]] or entity types
 
 ### Allow apps to get pictures on request
 
 While thumbnails would need to be preloaded, for example in iOS apps, images will be requested online from different tools.
 
-### Original documents could be too big: resized images should be available
+### Resized images should be available
 
 For most applications, mobile apps specially, having big pictures (10Mb for example) is not ideal. There should be a way to retrieve resized pictures. This could be also used for thumbnails.
 
@@ -39,7 +39,7 @@ For most applications, mobile apps specially, having big pictures (10Mb for exam
 
 Storage system cannot be responsible for the business logic. For example, it should not be the place to check for metadata correctness based on equpiment characteristics or material properties.
 
-In the same way, storing images should not be different no matter the entity related.
+In the same way, the storage process should not be different among images, no matter the entity related.
 
 ## How to achieve that
 
@@ -47,11 +47,11 @@ Here we are including our proposals on how to cover the above requisites.
 
 Those are just that, proposals, and are under discussion at the moment.
 
-When regarding to Azure and Mobile apps, we will greatly appreciate your comments on how to proceed. So any feedback is highly appreciated.
+Specially when regarding to Azure technologies and Mobile apps, we will greatly appreciate your comments on how to proceed. So any feedback is highly appreciated.
 
 ### Store flexible metadata with some fixed fields
 
-Leveragin on the NOSQL CosmosDB, we porpose to have a schema with some fixed fields, leaving others to be ready to accept any fields as the process will require.
+Leveraging on the NOSQL CosmosDB, we porpose to have a schema with some fixed fields, leaving others to be ready to accept any key:values as the process will require.
 
 Those fixed fields in the metadata should include EntityId and EntityType, that will identify the nature of that reference object (Spare Part, Equipment, etc.)
 
