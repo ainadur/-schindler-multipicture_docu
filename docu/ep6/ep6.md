@@ -8,6 +8,36 @@ This should be able to communicate with the Image Manager to get the upload URL 
 
 This API should have an endpoint to prepare the upload and to save the metadata.
 
+```mermaid
+sequenceDiagram
+  actor User
+  participant App as Upload App (iOs, UI5, etc.)
+  participant BTP as BTP Business layer
+  Box blue Azure
+  participant Cosmos as Cosmos DB
+  participant Blob as Blob Storage
+  end
+
+  User->>App: Upload Image
+  activate App
+  App->>BTP: Ask for Upload Link
+  activate BTP
+  BTP->>BTP: Check Metadata
+  BTP->>Cosmos: Create Metadata
+  activate Cosmos
+  Cosmos-->>BTP: Return SAS Link for Blob Storage upload
+  deactivate Cosmos
+  BTP-->>App: Confirm creation and return Upload Link
+  deactivate BTP
+  App->>Blob: Upload Image binaries
+  activate Blob
+  Blob-->>App: Upload response
+  deactivate Blob
+  App--)User: Confirm upload completed
+  deactivate App
+
+```
+
 ### Check metadata
 
 The first step is to check the metadata received.
