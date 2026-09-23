@@ -18,6 +18,20 @@ The branch used for this new developments is [feature/multipicture](https://bitb
 
 > [!CAUTION]Please, use that branch or create a new one forking from this one. There are already some changes developed in it that should be implemented together with the new ones.
 
+```mermaid
+---
+config:
+  theme: 'neutral'
+---
+gitGraph
+commit id: "main"
+branch develop
+commit id: "develop"
+branch feature/multipicture
+commit id: "previous changes"
+commit type: HIGHLIGHT id: "changes for this development"
+```
+
 ### Commiting
 
 This repository is prepared to fulfill the [convetional commits messages](https://www.conventionalcommits.org/en/v1.0.0/#summary).
