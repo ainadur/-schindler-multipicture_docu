@@ -5,10 +5,11 @@ This workstrem focuses on repair and spare parts process. This part in particula
 Here you can find the official Confluence portal of [Twin Portal Program](https://schindlerglobal.atlassian.net/wiki/spaces/SISTPP/overview).
 Including the [requirements for multipicture management](https://schindlerglobal.atlassian.net/wiki/spaces/SISTPP/pages/827228436/WS3+-+Repairs+Spare+Parts).
 
-## Epics (5)
+## Epics (6)
 
 - [[ep1]] ( #Azure, #Integration )
 - [[ep5]] ( #MaterialEnrichment, #Integration, #UI5)
 - [[ep2]] ( #Dtf, #Integration )
 - [[ep3]] ( #WECO, #SAP, #Integration )
+- [[ep6]] ( #SAP, #Integration )
 - [[ep4]] ( #Integration, ... )
