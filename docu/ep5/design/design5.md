@@ -57,7 +57,7 @@ oMaterialDataJSONModel>/To_MaterialDetails/Filep
 
 We need to creata mock-up (as the APIs are not defined yet) of an array of pictures and their description:
 
-```
+```JS
 imageArray = [
   {
     image_path: 'URL_1'
