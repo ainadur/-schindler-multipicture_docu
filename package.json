@@ -11,6 +11,6 @@
   ],
   "author": "Justo Sanz",
   "scripts": {
-    "pdf1": "'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe' --headless --print-to-pdf='C:\\Users\\sanzj4\\projects\\multipicture_docu\\docu\\ep1\\design\\design1.pdf' 'file:///C:/Users/sanzj4/projects/multipicture_docu/docu/ep1/design/design1.html'"
+    "pdf5": "'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe' --headless --print-to-pdf='C:\\Users\\sanzj4\\projects\\multipicture_docu\\docu\\ep5\\design\\design5.pdf' 'file:///C:/Users/sanzj4/projects/multipicture_docu/docu/ep5/design/design5.html'"
   }
 }
