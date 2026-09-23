@@ -14,28 +14,20 @@ sequenceDiagram
   participant App as Upload App (iOs, UI5, etc.)
   participant BTP as BTP Business layer
   Box blue Azure
-  participant Cosmos as Cosmos DB
-  participant Blob as Blob Storage
+    participant Cosmos as Cosmos DB
+    participant Blob as Blob Storage
   end
 
-  User->>App: Upload Image
-  activate App
-  App->>BTP: Ask for Upload Link
-  activate BTP
+  User->>+App: Upload Image
+  App->>+BTP: Ask for Upload Link
   BTP->>BTP: Check Metadata
-  BTP->>Cosmos: Create Metadata
-  activate Cosmos
-  Cosmos-->>BTP: Return SAS Link for Blob Storage upload
-  deactivate Cosmos
-  BTP-->>App: Confirm creation and return Upload Link
-  deactivate BTP
-  App->>Blob: Upload Image binaries
-  activate Blob
-  Blob-->>App: Upload response
-  deactivate Blob
-  App--)User: Confirm upload completed
-  deactivate App
-
+  BTP->>+Cosmos: Create Metadata
+  Cosmos-->>-BTP: Return SAS Link for Blob Storage upload
+  BTP-->>-App: Confirm creation and return Upload Link
+  App->>+Blob: Upload Image binaries
+  Blob->>Blob: Check for malware
+  Blob-->>-App: Upload response
+  App-->>-User: Confirm upload completed
 ```
 
 ### Check metadata
@@ -63,6 +55,78 @@ _PUT <UPLOAD_URL>_
 
 This avoid having the binaries traveling throught different layers/nodes that could affect latency.
 
-## Consume/download images
+## Read images
+
+```mermaid
+sequenceDiagram
+  participant App as Consumer (Spare Parts, Material Enrichment, etc.)
+  participant BTP as BTP Business Layer
+  Box blue Azure
+    participant Cosmos as Cosmos DB
+    participant Blob as Blob Storage
+  end
+
+  App->>+BTP: Ask for spare part Images
+  activate App
+  BTP->>BTP: Check material id
+  BTP->>+Cosmos: Request metadata
+  Cosmos-->>-BTP: Return metadata array with metadata of all images
+  BTP-->>-App: Return array of metadata including URL
+  loop could be done by image or in bulk
+  App->>+Blob: Use URL to get image
+  Blob-->>-App: Return binaries of image in the requested format
+  end
+  App->>-App: Show Image(s) and Description(s)
+```
+
+#todo
+
+## Delete image
+
+```mermaid
+sequenceDiagram
+  actor User
+  participant App as Image App (iOS, UI5, etc.)
+  participant BTP as BTP Business Layer
+  box blue Azure
+  participant Cosmos as Cosmos DB
+  participant Blob as Blob Storage
+  end
+
+  User->>+App: Delete Image
+  App->>+BTP: Delete Image
+  BTP->>BTP: Check request
+  BTP->>+Cosmos: Delete Metadata
+  Cosmos-->>-BTP: Confirm deletion
+  BTP->>+Blob: Delete binaries (all variants)
+  Blob-->>-BTP: Confirm deletion
+  BTP-->>-App: Confirm deletion
+  App-->>-User: Confirm deletion
+```
+
+#todo
+
+## Update Metadata
+
+```mermaid
+sequenceDiagram
+  actor User
+  participant App as Image App (iOS, UI5, etc.)
+  participant BTP as BTP Business Layer
+  box blue Azure
+  participant Cosmos as Cosmos DB
+  participant Cache@{ type: database, alias: FrontDoor}
+  end
+
+  User->>+App: Update Metadata
+  App->>+BTP: Update Metadata
+  BTP->>BTP: Check request
+  BTP->>+Cosmos: Update Metadata
+  Cosmos->>Cache: Prune cache
+  note over Cosmos,Cache: Only if visibility changed to Private
+  Cosmos-->>-BTP: Confirm update
+  BTP-->>-App: Confirm update
+  App-->>-User: Confirm update
+```
 
 #todo
