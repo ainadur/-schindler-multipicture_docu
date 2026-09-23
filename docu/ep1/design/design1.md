@@ -60,6 +60,7 @@ Those fixed fields in the metadata should include EntityId and EntityType, that 
   imageId,
   entityType,
   entityId,
+  visibility,
   blobPath,
   createdAt,
   createdBy,
