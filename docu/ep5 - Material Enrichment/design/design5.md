@@ -16,13 +16,9 @@ The repository is stored in Bitbucket: [Material Enrichment - YAP_SFS2_MAINT](ht
 
 The branch used for this new developments is [feature/multipicture](https://bitbucket.org/schindlerglobal/yap_sfs2_maint/src/fae5f7b89805aa1946f7decdbe63c59b04ea52a1/?at=feature%2Fmultipicture).
 
-> [!CAUTION]Please, use that branch or create a new one forking from this one. There are already some changes developed in it that should be implemented together with the new ones.
+> [!DANGER] Please, use that branch or create a new one forking from this one. There are already some changes developed in it that should be implemented together with the new ones.
 
 ```mermaid
----
-config:
-  theme: 'neutral'
----
 gitGraph
 commit id: "main"
 branch develop
@@ -54,9 +50,9 @@ git commit -m "chore(npm): update npm dependencies"
 git commit -m "refactor: clean oData calls following guidelines"
 ```
 
-> [!WARNING]If the commit message is not properly built, the system will not allow to proceed with the commit.
+> [!WARNING] If the commit message is not properly built, the system will not allow to proceed with the commit.
 
-> [!TIP]Most of the changes done during this developments would use 'feat'
+> [!TIP] Most of the changes done during this developments would use 'feat'
 
 ## Technical specs
 

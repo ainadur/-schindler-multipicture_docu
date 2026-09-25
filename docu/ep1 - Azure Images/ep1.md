@@ -1,15 +1,16 @@
 # Images should be stored in Azure with metadata
 
-> [[index]]
+> [[index|WS3 - Multipicture]]
 
-Azure is the chosen platform to store images and its metadata.
+Azure is the chosen platform to store images and their metadata.
 
 Microsoft provides binary storage with high availability and scalability using Blob Storage. We will be using that to store images.
 
 Cosmos DB is the solution Azure based of a managed database NOSQL, that is the best solution to store JSON type metadata.
 
 ## Design phase
-- [[design1]]
+
+- [[design1|Azure storage design]]
 
 ## User Stories
 
