@@ -7,7 +7,8 @@
     "WECO",
     "iOS",
     "SparesFinder",
-    "MaterialEnrichment"
+    "MaterialEnrichment",
+    "Azure"
   ],
   "author": "Justo Sanz",
   "scripts": {
