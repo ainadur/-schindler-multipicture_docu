@@ -1,3 +1,3 @@
 # More than one image should be shown in Spares Finder Web (WECO)
 
-> [[index]]
+> [[index|WS3 - Multipicture]]

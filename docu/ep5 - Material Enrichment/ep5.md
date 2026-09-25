@@ -1,6 +1,6 @@
 # Material Enrichment should show multiple pictures
 
-> [[index]]
+> [[index|WS3 - Multipicture]]
 
 Material Enrichment is showing currently only one picture per spare parts. Now that we will store more then one per material, we should update the tool to show all of them.
 

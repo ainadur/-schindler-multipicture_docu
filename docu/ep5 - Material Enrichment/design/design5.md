@@ -1,6 +1,6 @@
 # Material Enrichment Multiple Images design
 
-> [[index]]>[[ep5]]
+> [[index|WS3 - Multipicture]]>[[ep5|Material Enrichment should show multiple pictures]]
 
 ## Requisites
 

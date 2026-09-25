@@ -1,5 +1,7 @@
 # API for material business logic
 
+> [[index|WS3 Multipicture]]
+
 This will act as the business logic layer before accesing the Image Manager.
 
 This should be able to communicate with the Image Manager to get the upload URL and to manage metadata saving and retrieving.
@@ -13,7 +15,7 @@ sequenceDiagram
   actor User
   participant App as Upload App (iOs, UI5, etc.)
   participant BTP as BTP Business layer
-  Box blue Azure
+  Box rgba(47, 70, 241, 0.2) Azure
     participant Cosmos as Cosmos DB
     participant Blob as Blob Storage
   end
@@ -61,7 +63,7 @@ This avoid having the binaries traveling throught different layers/nodes that co
 sequenceDiagram
   participant App as Consumer (Spare Parts, Material Enrichment, etc.)
   participant BTP as BTP Business Layer
-  Box blue Azure
+  Box rgba(47, 70, 241, 0.2) Azure
     participant Cosmos as Cosmos DB
     participant Blob as Blob Storage
   end
@@ -88,7 +90,7 @@ sequenceDiagram
   actor User
   participant App as Image App (iOS, UI5, etc.)
   participant BTP as BTP Business Layer
-  box blue Azure
+  box rgba(47, 70, 241, 0.2) Azure
   participant Cosmos as Cosmos DB
   participant Blob as Blob Storage
   end
@@ -113,9 +115,9 @@ sequenceDiagram
   actor User
   participant App as Image App (iOS, UI5, etc.)
   participant BTP as BTP Business Layer
-  box blue Azure
-  participant Cosmos as Cosmos DB
-  participant Cache@{ type: database, alias: FrontDoor}
+  box rgba(47, 70, 241, 0.2) Azure
+    participant Cosmos as Cosmos DB
+    participant Cache@{ type: database, alias: FrontDoor}
   end
 
   User->>+App: Update Metadata

@@ -1,6 +1,6 @@
 # Azure storage design
 
-> [[index]]>[[ep1]]
+> [[index|WS3 Multipicture]]>[[ep1|Images should be stored in Azure with metadata]]
 
 ## Requisites
 
@@ -82,11 +82,11 @@ The hierarchy is primarily intended for operational organization and efficient p
 
 We can either have a container per EntityType + EntityId:
 
-![alt text](entitytype-and-entity.png)
+![Entity type + entity id](entitytype-and-entity.png)
 
 Or a container per EntityType and then multiple sub-folders per EntityId
 
-![alt text](entitytype-and-then-entity.png)
+![Entity type and subfolders by entity id](entitytype-and-then-entity.png)
 
 This second one is our preferred approach, but we would kindly ask for feedback from the Azure team about this.
 
@@ -107,7 +107,7 @@ Also:
 
 For the mobile apps, probably just medium and thumbnail are enough. For the web tools, all of the formats will be used: For example in web Spares Finder - search box auto-complete will have the thumbnail used, while the search list will show the medium, and the detailed view will show the big size.
 
-> [!WARNING]Open discussion: Should the images be generated on upload, or the resize should be processed on request?
+> [!WARNING] Open discussion: Should the images be generated on upload, or the resize should be processed on request?
 
 ### Metadata source of truth will be CosmosDB in Azure
 
@@ -129,7 +129,7 @@ Applications should authenticate through Entra ID and the Image Storage system s
 
 Details regarding roles and permissions are still under discussion.
 
-> [!WARNING]This topic has not been discussed, but needs to be tackled to align with the whole architecture.
+> [!WARNING] This topic has not been discussed, but needs to be tackled to align with the whole architecture.
 
 ## Glosary
 

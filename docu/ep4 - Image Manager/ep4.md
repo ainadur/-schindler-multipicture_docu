@@ -1,6 +1,6 @@
 # Users need to be able to manage images and their metadata
 
-> [[index]]
+> [[index|WS3 - Multipicture]]
 
 A new tool/process is to be developed to allow users (admin) to update image metadata, and their sorting when being displayed in other tools.
 

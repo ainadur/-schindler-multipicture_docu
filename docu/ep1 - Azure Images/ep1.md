@@ -14,9 +14,9 @@ Cosmos DB is the solution Azure based of a managed database NOSQL, that is the b
 
 ## User Stories
 
-- [[ep1_us1]]
-- [[ep1_us2]]
-- [[ep1_us3]]
+- [[ep1_us1|Admin users/apps should be able to identify to consume/edit pictures]]
+- [[ep1_us2|Public images can be consumed via link]]
+- [[ep1_us3|A complete collection (images with the same reference object) should be able to be retrieved (links)]]
 
 ## Legacy system 4AllPortal
 
