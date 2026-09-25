@@ -6,6 +6,8 @@ This will act as the business logic layer before accesing the Image Manager.
 
 This should be able to communicate with the Image Manager to get the upload URL and to manage metadata saving and retrieving.
 
+---
+
 ## Upload of new picture
 
 This API should have an endpoint to prepare the upload and to save the metadata.
@@ -57,6 +59,8 @@ _PUT <UPLOAD_URL>_
 
 This avoid having the binaries traveling throught different layers/nodes that could affect latency.
 
+---
+
 ## Read images
 
 ```mermaid
@@ -83,6 +87,8 @@ sequenceDiagram
 
 #todo
 
+---
+
 ## Delete image
 
 ```mermaid
@@ -107,6 +113,8 @@ sequenceDiagram
 ```
 
 #todo
+
+---
 
 ## Update Metadata
 
