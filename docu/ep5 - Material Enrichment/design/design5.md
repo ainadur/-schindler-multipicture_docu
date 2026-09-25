@@ -12,20 +12,25 @@ Also, each picture should show the description for it (if any) as a footer text.
 
 ## Repository
 
-The repository is stored in Bitbucket: [Material Enrichment - YAP_SFS2_MAINT](https://bitbucket.org/schindlerglobal/yap_sfs2_maint/src/).
+The repository is stored in Bitbucket: [Material Enrichment - YAP_SFS2_MAINT](https://bitbucket.org/schindlerglobal/yap_sfs2_maint/src/). The branch used for this new developments is [feature/multipicture](https://bitbucket.org/schindlerglobal/yap_sfs2_maint/src/fae5f7b89805aa1946f7decdbe63c59b04ea52a1/?at=feature%2Fmultipicture).
 
-The branch used for this new developments is [feature/multipicture](https://bitbucket.org/schindlerglobal/yap_sfs2_maint/src/fae5f7b89805aa1946f7decdbe63c59b04ea52a1/?at=feature%2Fmultipicture).
-
-> [!DANGER] Please, use that branch or create a new one forking from this one. There are already some changes developed in it that should be implemented together with the new ones.
+> [!DANGER] Ensure to use that branch as there are already some changes developed in it that should be implemented together with the new ones.
 
 ```mermaid
+---
+config:
+  themeVariables:
+      'git0': '#fc6565'
+      'git1': '#61dc61'
+      'git2': '#5e5efa'
+---
 gitGraph
-commit id: "main"
-branch develop
-commit id: "develop"
-branch feature/multipicture
-commit id: "previous changes"
-commit type: HIGHLIGHT id: "changes for this development"
+  commit id: " "
+  branch develop
+  commit id: "  "
+  branch feature/multipicture
+  commit id: "previous changes"
+  commit type: HIGHLIGHT id: "changes for this development"
 ```
 
 ### Commiting
