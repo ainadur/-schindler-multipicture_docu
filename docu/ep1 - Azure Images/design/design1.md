@@ -25,7 +25,7 @@ An entity can be associated with multiple images.
 In order to be properly retrieve the image binaries, it is recommended to use a path hierarchy prefix-based to save the images:
 
 - All images for a single entity should be in the same folder
-- Different containers will be needed for different [[design1#entity|entities*]] or entity types
+- Different containers will be needed for different [[design1#Entity|entities*]] or entity types
 
 ### Allow apps to get pictures on request
 
