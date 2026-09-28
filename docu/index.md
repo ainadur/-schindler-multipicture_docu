@@ -7,9 +7,9 @@ Including the [requirements for multipicture management](https://schindlerglobal
 
 ## Epics (6)
 
-- [[ep1]] ( #Azure, #Integration )
-- [[ep5]] ( #MaterialEnrichment, #Integration, #UI5)
-- [[ep2]] ( #Dtf, #Integration )
-- [[ep3]] ( #WECO, #SAP, #Integration )
-- [[ep6]] ( #SAP, #Integration )
-- [[ep4]] ( #Integration, ... )
+- [[ep1|Images should be stored in Azure with metadata]] ( #Azure, #Integration )
+- [[ep5|Material Enrichment should show multiple pictures]] ( #MaterialEnrichment, #Integration, #UI5)
+- [[ep2|More than one image should be shown in Spares Finder iOS]] ( #Dtf, #Integration )
+- [[ep3|More than one image should be shown in Spares Finder Web (WECO)]] ( #WECO, #SAP, #Integration )
+- [[ep6|API for material business logic]] ( #SAP, #Integration )
+- [[ep4|Users need to be able to manage images and their metadata]] ( #Integration, ... )
