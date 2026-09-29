@@ -49,7 +49,7 @@ Optionally, you can add the topic between with brackets.
 
 Here some example:
 
-```JS
+```bash
 git commit -m "feat(detail): add new carousel for images"
 git commit -m "chore(npm): update npm dependencies"
 git commit -m "refactor: clean oData calls following guidelines"
@@ -72,7 +72,7 @@ oMaterialDataJSONModel>/To_MaterialDetails/Filep
 
 We need to creata mock-up (as the APIs are not defined yet) of an array of pictures and their description:
 
-```JS
+```javascript
 imageArray = [
   {
     image_path: 'URL_1'
