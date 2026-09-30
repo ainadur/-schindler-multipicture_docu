@@ -8,22 +8,26 @@ Since each system has its own capabilities, constraints, and security considerat
 
 ## Requirements to be covered
 
-- We need to store multiple images per spare part
-- Additional information to be attached to the image as metadata: type of image, description, etc.
-- Users should see those images in the different apps (iOS, Web, SAP ERP, etc.)
-- Images should be available for [[glossary#VISP|VISP]]
+### Functional requirements
+
+- Support multiple images per spare part
+- Store image-related metadata, such as image type, description and other future attributes
+- Make images available across all consuming applications (iOS, Web, SAP ERP, etc.)
+- Make images available for [[glossary#VISP|VISP]] consumption
+
+### Non-functional requirements
+
+- Decouple business logic from the underlying storage technology
+- Support future storage migrations with minimal impact on consuming applications
+- Ensure secure access and authorization management
+- Provide a scalable and resilient solution for image storage and retrieval
 
 ### Nice to have
 
-- Consolidate image storage systems
-- Enhance security and recovery plans
-- Reduce maintanability effort and improve resilience to changes
-- Prepare for future scenarios: SAP Clean Core, migrations, platform changes
-
-## Systems/functionalities needed
-
-- Storage System for image binaries
-- Metadata repository
+- Consolidate existing image storage systems
+- Enhance security, backup and recovery capabilities
+- Reduce maintenance effort and improve resilience to changes
+- Prepare for future scenarios such as SAP Clean Core initiatives, ERP migrations and platform evolutions
 
 ## Proposals
 
@@ -73,16 +77,12 @@ architecture-beta
 
 #### Pros and Cons
 
-🟢 Keep the business logic close to the master data without mixing responsibilities with the ERP
-🟢 Follow Clean Core SAP recommendations
-🟢 Authentication and authorization can leverage SAP BTP services (XSUAA, IAS, Principal Propagation)
-🟢 Easier future migration from SAP ERP to S/4HANA thanks to loose coupling
-🟢 Metadata and image storage can evolve independently from SAP backend systems
-🟢 Store Images in Azure allowing the usage for VISP
-🟡 More complex troubleshooting due to cross-platform integrations
-🟡 Dependency on both SAP and Azure platform availability
-🔴 Additional operational landscape (BTP + Azure + SAP)
-🔴 BTP additional costs (based on licenses, traffic...?)
+🟢 Best alignment with SAP Clean Core and future S/4HANA evolution
+🟢 Keeps business logic close to SAP while avoiding ERP customizations
+🟢 Leverages SAP-native authentication and authorization capabilities
+🟢 Enables image consumption from both SAP and non-SAP applications (VISP)
+🔴 Higher operational complexity due to SAP, BTP and Azure integration
+🟡 Requires expertise across multiple technology platforms
 
 ---
 
@@ -128,19 +128,12 @@ architecture-beta
 
 #### Pros and Cons
 
-🟢 Less API exposure if Private Links used in Azure
-🟢 Direct access to Azure-native services (Functions, API Management, Event Grid, AI Services)
-🟢 Store Images in Azure allowing the usage for VISP
-🟢 Easier reuse of the API for non-SAP consumers and external partners
-🟢 Easier future migration from SAP ERP to S/4HANA thanks to loose coupling
-🟡 Ownership boundaries may become unclear between SAP and Azure teams
-🔴 Additional integration with SAP environment required
-🔴 SAP authorizations and business rules must be replicated or exposed externally
-🔴 Additional Azure costs per additional service and traffic
-
-#### Observation
-
-This option is technically simple but tends to shift business ownership outside the SAP ecosystem. Over time that can create duplication of processes and authorization models.
+🟢 Simpler technical landscape with a single cloud platform
+🟢 Enables image consumption from both SAP and non-SAP applications (VISP)
+🟢 Reduced external API exposure when Azure Private Links can be used
+🔴 Business rules and authorizations must be replicated outside SAP
+🔴 Additional integration effort with SAP systems and identities
+🟡 Risk of business ownership gradually moving away from the SAP ecosystem
 
 ---
 
@@ -211,31 +204,25 @@ sequenceDiagram
 
 #### Pros and Cons
 
-🟢 Lower disruption for KGs not yet participating in Multipicture
-🟢 Allows phased adoption and gradual migration
-🟡 Migration of data needed each time is rolled-in
-🟡 Images not available for VISP until each KG is rolled-in
-🟡 Additional reconciliation processes may be needed to avoid data inconsistencies
-🔴 Risk of the temporary transition architecture becoming permanent
-🔴 Additional logic to identify rolled-in KGs
-🔴 Changes still required in all apps to adapt to the new model
-🔴 Two sources of truth for image storage during rollout
+🟢 Supports phased rollout and controlled adoption by KG
+🟢 Preserves existing DAM processes during the transition
+🔴 Two storage models must coexist during the rollout period
+🔴 Increases implementation and maintenance complexity across all applications
+🔴 Risk of the transitional architecture becoming permanent
+🟡 VISP availability depends on migration progress
 
 ---
 
 ## Architectural assessmnet
 
-- BTP + Azure: Strategic option. Best alignment with Clean Core, S/4 readiness and SAP-centric architecture.
-
-- Azure + Azure: Technology-driven option. Simpler from a cloud perspective but requires stronger SAP integration efforts.
-
-- 4AllPortal + Azure: Transitional option. Allow incremental roll-outs. Still requires developments in all layers to support both _Storage_ options
-
 | Criterion                 | BTP + Azure | Azure + Azure | 4AllPortal + Azure |
 | :------------------------ | :---------- | :------------ | :----------------- |
-| Clean Core alignment      | 🟢 High     | 🟡 Medium     | ~~~~               |
-| SAP integration           | 🟢 High     | 🟡 Medium     | ~~~~               |
+| Clean Core alignment      | 🟢 High     | 🟡 Medium     | \*                 |
+| SAP integration           | 🟢 High     | 🟡 Medium     | \*                 |
 | VISP compatibility        | 🟢 High     | 🟢 High       | 🟡 Progressive     |
-| Future S/4 readiness      | 🟢 High     | 🟡 Medium     | ~~~~               |
+| Future S/4 readiness      | 🟢 High     | 🟡 Medium     | \*                 |
 | Operational complexity    | 🟡 Medium   | 🟢 Low        | 🔴 High            |
+| Cross Platform dependency | 🔴 High     | 🟢 Low        | 🔴 High            |
 | Long-term maintainability | 🟢 High     | 🟡 Medium     | 🔴 Low             |
+
+\* _Depends on the Business layer choosen architecture_
