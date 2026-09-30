@@ -55,7 +55,7 @@ Leveraging on the NOSQL CosmosDB, we porpose to have a schema with some fixed fi
 
 Those fixed fields in the metadata should include EntityId and EntityType, that will identify the nature of that reference object (Spare Part, Equipment, etc.)
 
-```JS
+```javascript
 {
   imageId,
   entityType,

@@ -5,6 +5,10 @@ This workstrem focuses on repair and spare parts process. This part in particula
 Here you can find the official Confluence portal of [Twin Portal Program](https://schindlerglobal.atlassian.net/wiki/spaces/SISTPP/overview).
 Including the [requirements for multipicture management](https://schindlerglobal.atlassian.net/wiki/spaces/SISTPP/pages/827228436/WS3+-+Repairs+Spare+Parts).
 
+## Overall architecture
+
+[[architecture| Overall architecture]]
+
 ## Epics (6)
 
 - [[ep1|Images should be stored in Azure with metadata]] ( #Azure, #Integration )
