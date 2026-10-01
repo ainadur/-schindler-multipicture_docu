@@ -129,8 +129,8 @@ architecture-beta
 #### Pros and Cons
 
 🟢 Simpler technical landscape with a single cloud platform
-🟢 Enables image consumption from both SAP and non-SAP applications (VISP)
 🟢 Reduced external API exposure when Azure Private Links can be used
+🟢 Enables image consumption from both SAP and non-SAP applications (VISP)
 🔴 Business rules and authorizations must be replicated outside SAP
 🔴 Additional integration effort with SAP systems and identities
 🟡 Risk of business ownership gradually moving away from the SAP ecosystem
@@ -213,16 +213,43 @@ sequenceDiagram
 
 ---
 
-## Architectural assessmnet
+## Architectural assessment
 
-| Criterion                 | BTP + Azure | Azure + Azure | 4AllPortal + Azure |
-| :------------------------ | :---------- | :------------ | :----------------- |
-| Clean Core alignment      | 🟢 High     | 🟡 Medium     | \*                 |
-| SAP integration           | 🟢 High     | 🟡 Medium     | \*                 |
-| VISP compatibility        | 🟢 High     | 🟢 High       | 🟡 Progressive     |
-| Future S/4 readiness      | 🟢 High     | 🟡 Medium     | \*                 |
-| Operational complexity    | 🟡 Medium   | 🟢 Low        | 🔴 High            |
-| Cross Platform dependency | 🔴 High     | 🟢 Low        | 🔴 High            |
-| Long-term maintainability | 🟢 High     | 🟡 Medium     | 🔴 Low             |
+| Criterion                 | BTP + Azure    | Azure + Azure  | 4AllPortal + Azure |
+| :------------------------ | :------------- | :------------- | :----------------- |
+| Clean Core alignment      | 🟢 High        | 🟡 Medium      | \*                 |
+| Authorization governance  | 🟢 Centralized | 🔴 Distributed | \*                 |
+| VISP compatibility        | 🟢 High        | 🟢 High        | 🟡 Progressive     |
+| Future S/4 readiness      | 🟢 High        | 🟡 Medium      | \*                 |
+| Operational complexity    | 🔴 High        | 🟢 Low         | 🔴 High            |
+| Cross Platform dependency | 🟡 Medium      | 🟢 Low         | 🔴 High            |
+| Long-term maintainability | 🟢 High        | 🟡 Medium      | 🔴 Low             |
 
-\* _Depends on the Business layer choosen architecture_
+\* _Depends on the Business Layer chosen architecture_
+
+**Clean Core alignment**
+Measures how well the architecture aligns with SAP's Clean Core principles by keeping custom developments decoupled from the ERP system.
+
+ 
+**Authorization governance**
+Evaluates whether access control and authorization rules can be managed centrally or need to be duplicated across platforms.
+
+ 
+**VISP compatibility**
+Assesses how easily images can be consumed by VISP and other non-SAP applications.
+
+ 
+**Future S/4 readiness**
+Measures how easily the solution can adapt to future ERP upgrades or a migration to SAP S/4HANA.
+
+ 
+**Operational complexity**
+Reflects the effort required to operate, monitor, troubleshoot and support the solution across all involved platforms.
+
+ 
+**Cross-platform dependency**
+Measures the degree of dependency between different technology platforms and the impact of failures or changes in one platform on the overall solution.
+
+ 
+**Long-term maintainability**
+Evaluates how easy the solution is to evolve, support and extend over time while minimizing technical debt.
