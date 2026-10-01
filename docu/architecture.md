@@ -246,3 +246,4 @@ sequenceDiagram
 - Temporary coexistence of storage solutions may become a permanent architecture
 - Increased development and operational effort to support dual storage models
 - Risk of data inconsistencies between platforms during migration and rollout activities
+- Schindler internal security assessment detected some risks related to 4AllPortal
