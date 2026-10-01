@@ -7,7 +7,7 @@ Including the [requirements for multipicture management](https://schindlerglobal
 
 ## Overall architecture
 
-[[architecture| Overall architecture]]
+[[architecture/architecture|Overall architecture]]
 
 ## Epics (6)
 
