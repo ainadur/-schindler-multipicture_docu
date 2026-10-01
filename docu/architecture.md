@@ -227,29 +227,22 @@ sequenceDiagram
 
 \* _Depends on the Business Layer chosen architecture_
 
-**Clean Core alignment**
-Measures how well the architecture aligns with SAP's Clean Core principles by keeping custom developments decoupled from the ERP system.
+### Key risks
 
- 
-**Authorization governance**
-Evaluates whether access control and authorization rules can be managed centrally or need to be duplicated across platforms.
+**BTP + Azure**
 
- 
-**VISP compatibility**
-Assesses how easily images can be consumed by VISP and other non-SAP applications.
+- Increased operational complexity due to the coexistence of SAP ERP, BTP and Azure platforms
+- Costs distributed across multiple cloud environments, making long-term cost forecasting more difficult
+- Increased dependency on cross-platform integrations for critical business processes
 
- 
-**Future S/4 readiness**
-Measures how easily the solution can adapt to future ERP upgrades or a migration to SAP S/4HANA.
+**Azure + Azure**
 
- 
-**Operational complexity**
-Reflects the effort required to operate, monitor, troubleshoot and support the solution across all involved platforms.
+- Business rules and authorization models may gradually diverge from SAP standards and processes
+- Additional effort may be required to keep SAP authorizations synchronized with Azure services
+- SAP BTP might still be required for integration scenarios, reducing the expected platform simplification benefits
 
- 
-**Cross-platform dependency**
-Measures the degree of dependency between different technology platforms and the impact of failures or changes in one platform on the overall solution.
+**4AllPortal + Azure**
 
- 
-**Long-term maintainability**
-Evaluates how easy the solution is to evolve, support and extend over time while minimizing technical debt.
+- Temporary coexistence of storage solutions may become a permanent architecture
+- Increased development and operational effort to support dual storage models
+- Risk of data inconsistencies between platforms during migration and rollout activities
