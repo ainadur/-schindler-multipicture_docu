@@ -190,16 +190,16 @@ sequenceDiagram
   participant Azure
   participant DAM as 4AllPortal
 
-  App->>+BL: Request an image
-
+  App->>+BL: Upload image
   BL->>SAP: Ask for owner
   destroy SAP
   SAP-->>BL: Return owner
+  BL->>BL: Determine storage based on owner
   BL->>Azure: Save in Azure
   note over BL, Azure: If owner KG is rolled in multipicture (SCH)
   BL->>DAM: Save in 4AllPortal / Click.it
   note over BL, DAM: If owner KG is not rolled in multipicture<br>No metadata supported
-  BL-->>-App: Return image
+  deactivate BL
 ```
 
 #### Pros and Cons
@@ -243,7 +243,7 @@ sequenceDiagram
 
 **4AllPortal + Azure**
 
-- Temporary coexistence of storage solutions may become a permanent architecture
 - Increased development and operational effort to support dual storage models
 - Risk of data inconsistencies between platforms during migration and rollout activities
 - Schindler internal security assessment detected some risks related to 4AllPortal
+- Dependency on external partners (Click-it and 4AllPortal). Non-extended support coverage and additional costs
