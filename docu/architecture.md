@@ -29,7 +29,20 @@ Since each system has its own capabilities, constraints, and security considerat
 - Reduce maintenance effort and improve resilience to changes
 - Prepare for future scenarios such as SAP Clean Core initiatives, ERP migrations and platform evolutions
 
-## Proposals
+## Architectural proposals
+
+All proposals share the same functional objectives and core components. The evaluation focuses on how responsibilities are distributed across platforms and how each option impacts integration, security, maintainability and future evolution.
+
+### Core components
+
+- **Apps**: Consumer applications.
+- **Business Layer**: Single entry point API containing business logic, validations and authorization checks.
+- **PE1 (SAP ERP)**: Source of truth for spare part master data.
+- **SAP BTP**: Cloud platform providing SAP integration, authentication and extension capabilities.
+- **Azure**: Cloud platform hosting storage and supporting services.
+- **Azure Blob Storage**: Storage repository for image binaries.
+- **Azure Cosmos DB**: Metadata repository.
+- **4AllPortal**: Existing DAM solution used for image management.
 
 ---
 
