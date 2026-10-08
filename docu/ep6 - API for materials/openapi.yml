@@ -1,0 +1,47 @@
+openapi: 3.1.0
+info:
+  title: Business Layer for Spare Part Images
+  version: 0.0.1
+  summary: Business Layer API for Spare Part Image management
+  description: Business Layer
+  license:
+    name: Proprietary
+    url: "/license.md"
+security:
+  - BearerJWT: []
+servers:
+  - url: "test/v1"
+tags:
+  - name: Tools
+    description: Service tools
+  - name: Images
+    description: Image management
+  - name: Metadata
+    description: Metadata management
+paths:
+  /health:
+    get:
+      tags: [Tools]
+      operationId: checkHealth
+      summary: Check if the system is up and running
+      description: This endpoint response means that the system is up and running and can be used for its intent
+  /image:
+    post:
+      tags: [Images]
+      operationId: postImage
+      summary: Start the creation of a new image
+      description: |
+        Create the metadata and return a pre-signed URL for the upload
+
+        This endpoint requires the complete metadata but will not receive the image binaries.
+        After checking the metadata and authorizations for the actor, it will create a pre-signed
+        URL for the upload of the image to be used in a PUT call from the calling app.
+
+        The upload link will have a live duration of ~ 5 min.
+
+components:
+  securitySchemes:
+    BearerJWT:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
